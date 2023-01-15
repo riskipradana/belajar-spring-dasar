@@ -80,9 +80,17 @@ pipeline {
             }
         }
         stage('Deploy') {
+            input {
+                message "Can we deploy?"
+                ok "Yes, of course"
+                submitter "pzn,eko"
+                parameters {
+                    choice(name: "TARGET_ENV", choices: ['DEV', 'QA', 'PROD'], description: "Which Environment?")
+                }
+            }
             agent any
             steps {
-                echo 'Stage Deploy - Step 1!'
+                echo("Deploy to ${TARGET_ENV}")
             }
         }
     }
