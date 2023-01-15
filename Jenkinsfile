@@ -3,12 +3,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sleep(5)
+                bat("mvn clean install -DskipTests")
                 echo 'Stage Build - Step 1!'
             }
         }
         stage('Test') {
             steps {
+                bat("mvn test")
                 echo 'Stage Test - Step 1!'
             }
         }
