@@ -101,6 +101,9 @@ pipeline {
                 }
             }
             agent any
+            steps {
+                echo("Release it")
+            }
         }
     }
     post{
