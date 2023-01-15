@@ -5,9 +5,9 @@ pipeline {
             steps {
                 bat("mvn clean install -DskipTests")
                 echo 'Stage Build - Step 1!'
-            }
-            script {
-                echo 'script'
+                script {
+                    echo 'script'
+                }
             }
         }
         stage('Test') {
