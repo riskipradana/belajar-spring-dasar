@@ -28,14 +28,16 @@ pipeline {
 
         stage("Preparation") {
             agent any
-            stage("Prepare Java") {
-                steps {
-                    echo("Prepare Java")
+            stages {
+                stage("Prepare Java") {
+                    steps {
+                        echo("Prepare Java")
+                    }
                 }
-            }
-            stage("Prepare Maven") {
-                steps {
-                    echo("Prepare Maven")
+                stage("Prepare Maven") {
+                    steps {
+                        echo("Prepare Maven")
+                    }
                 }
             }
         }
