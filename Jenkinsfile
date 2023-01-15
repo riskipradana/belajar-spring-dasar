@@ -93,6 +93,15 @@ pipeline {
                 echo("Deploy to ${TARGET_ENV}")
             }
         }
+
+        stage("Release") {
+            when {
+                expression {
+                    return params.DEPLOY
+                }
+            }
+            agent any
+        }
     }
     post{
         always {
