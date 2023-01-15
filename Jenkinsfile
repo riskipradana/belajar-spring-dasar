@@ -23,7 +23,7 @@ pipeline {
                 echo("Branch Name : ${env.BRANCH_NAME}")
                 echo("App User : ${APP_USR}")
                 echo("App User : ${APP_PSW}") //string interpolation
-                sh('echo "App Password : $APP_PSW" > "rahasia.txt"')
+                bat('echo "App Password : $APP_PSW" > "rahasia.txt"')
             }
         }
 
