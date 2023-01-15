@@ -44,6 +44,21 @@ pipeline {
             }
         }
 
+        stage("Preparation") {
+            stage("Prepare Java") {
+                agent any
+                steps {
+                    echo("Prepare Java")
+                }
+            }
+            stage("Prepare Maven") {
+                agent any
+                steps {
+                    echo("Prepare Maven")
+                }
+            }
+        }
+
         stage("Parameter") {
             agent any
             steps {
