@@ -27,16 +27,19 @@ pipeline {
     stages {
 
         stage("Preparation") {
-            agent any
-            stages {
+            parallel {
                 stage("Prepare Java") {
+                    agent any
                     steps {
                         echo("Prepare Java")
+                        sleep(5)
                     }
                 }
                 stage("Prepare Maven") {
+                    agent any
                     steps {
                         echo("Prepare Maven")
+                        sleep(5)
                     }
                 }
             }
