@@ -26,6 +26,20 @@ pipeline {
 
     stages {
 
+        stage("Preparation") {
+            agent any
+            stage("Prepare Java") {
+                steps {
+                    echo("Prepare Java")
+                }
+            }
+            stage("Prepare Maven") {
+                steps {
+                    echo("Prepare Maven")
+                }
+            }
+        }
+
         stage("Prepare") {
             environment {
                 APP = credentials("riski_rahasia")
@@ -41,21 +55,6 @@ pipeline {
                 echo("App User : ${APP_USR}")
                 echo("App User : ${APP_PSW}") //string interpolation
                 bat('echo "App Password : $APP_PSW" > "rahasia.txt"')
-            }
-        }
-
-        stage("Preparation") {
-            stage("Prepare Java") {
-                agent any
-                steps {
-                    echo("Prepare Java")
-                }
-            }
-            stage("Prepare Maven") {
-                agent any
-                steps {
-                    echo("Prepare Maven")
-                }
             }
         }
 
