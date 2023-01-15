@@ -1,7 +1,8 @@
 pipeline {
-    agent any
+    agent none
     stages {
         stage('Build') {
+            agent any
             steps {
                 bat("mvn clean install -DskipTests")
                 echo 'Stage Build - Step 1!'
@@ -11,6 +12,7 @@ pipeline {
             }
         }
         stage('Test') {
+            agent any
             steps {
                 bat("mvn test")
                 echo 'Stage Test - Step 1!'
@@ -24,6 +26,7 @@ pipeline {
             }
         }
         stage('Deploy') {
+            agent any
             steps {
                 echo 'Stage Deploy - Step 1!'
             }
