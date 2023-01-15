@@ -3,8 +3,22 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                echo 'Test Push From SCM'
+                echo 'Stage - Step Test Push From SCM!'
             }
+        }
+    }
+    post{
+        always {
+            echo "Post, always!"
+        }
+        success {
+            echo "Post, success!"
+        }
+        failure {
+            echo "Post, failure!"
+        }
+        cleanup {
+            echo "Post, cleanup!"
         }
     }
 }
