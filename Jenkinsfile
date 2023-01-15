@@ -15,6 +15,13 @@ pipeline {
                 bat("mvn test")
                 echo 'Stage Test - Step 1!'
             }
+            script {
+                def data = [
+                        "firstName": "Riski",
+                        "lastName" : "Pradana"
+                ]
+                writeJSON(file: "data.json", json: data)
+            }
         }
         stage('Deploy') {
             steps {
